@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            list-style-type: none;
+           height:fit-content;
+           align-content: center;
+        }
+        ul{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .container{
+            display: grid;
+            grid-template-columns: 1fr  1fr 1fr 1fr;
+            row-gap: 10px;
+        }
+
+        @media screen and (max-width:800px){
+            .container{
+                display: grid;
+                grid-template-columns: 1fr  1fr;
+            }
+        }
+
+        @media screen and (max-width:600px) {
+            .container{
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .innerDiv{
+            grid-template-columns: 1fr  1fr 1fr 1fr;
+            grid-template-rows: 100px 200px;     
+            row-gap: 10px;
+        }
+
+        .div1{
+            grid-column: span 3;
+            
+        }
+        .Sidebar{
+            grid-row: span 2;
+        }
+        @media screen and (max-width:800px) {
+            .innerDiv{
+                grid-template-columns:  1fr 1fr 1fr;
+                grid-template-rows: 150px 150px;    
+            }
+
+            .div1{
+            grid-column: span 1;
+            }
+        }
+
+        @media screen and (max-width:400px) {
+            .innerDiv{
+                grid-template-columns:  1fr;
+                grid-template-rows: 60px 100px 100px 100px 100px;     
+            }
+            .Sidebar{
+            grid-row: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <ul 
+        class="container"
+        >
+            <li style="border: 1px solid black;" >1</li>
+            <li style="border: 1px solid black;" >1</li>
+            <li style="border: 1px solid black;" >1</li>
+            <li style="border: 1px solid black;" >1</li>
+            <li style="border: 1px solid black;" >1</li>
+            <li style="border: 1px solid black;" >1</li>
+            <li style="border: 1px solid black;" >1</li>
+            <li style="border: 1px solid black;" >1</li>
+            <li style="border: 1px solid black;" >1</li>
+            <li style="border: 1px solid black;" >1</li>
+            <li style="border: 1px solid black;" >1</li>
+            <li style="border: 1px solid black;" >1</li>
+            <li style="border: 1px solid black;" >1</li>
+        </ul>
+    </div>
+
+    <div
+    style="display: grid;
+     grid-template-columns:  1fr;
+     grid-template-rows: 100px;
+     justify-content: center;
+     align-items: center;
+     ">
+    <div
+    style="text-align: center;
+    align-items: center;
+    height: 100%;    
+    background-color: aqua;">
+    Header
+    </div>
+    </div>
+
+    <div
+    class="innerDiv"
+    style="display: grid;    
+     justify-content: center;
+     align-items: center;
+     margin-top: 10px;
+     gap: 10px;
+     ">
+    <div
+    class="Sidebar"
+    style="text-align: center;
+    height: 100%;    
+    background-color: aqua;">
+    Sidebar
+    </div>
+    <div
+    class="div1"
+    style="text-align: center;
+    height: 100%;     
+    background-color: aqua;">
+   1
+    </div>
+    <div
+    style="text-align: center;
+    height: 100%;    
+    background-color: aqua;">
+    2
+    </div>
+    <div
+    style="text-align: center;
+    height: 100%; 
+    background-color: aqua;">
+    3
+    </div>
+    <div
+    style="text-align: center;
+    height: 100%; 
+    background-color: aqua;">
+   4
+    </div>
+    </div>
+    <div
+    style="display: grid;
+     grid-template-columns:  1fr;
+     grid-template-rows: 100px;
+     justify-content: center;
+     align-items: center;
+     ">
+    <div
+    style="text-align: center;
+    align-items: center;
+    height: 100%;    
+    background-color: aqua;
+    margin-top: 10px;">
+    Footer
+    </div>
+    
+</body>
+</html>

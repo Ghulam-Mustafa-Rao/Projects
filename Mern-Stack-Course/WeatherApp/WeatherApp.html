@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+   
+
+</head>
+<body class="bg-[url('https://149842022.v2.pressablecdn.com/travelify/wp-content/uploads/sites/53/2013/05/Spain-Plaza-de-Cibeles-Madrid-1.jpg')]
+bg-cover bg-no-repeat">
+ <!-- Top Div -->
+
+ 
+
+    <div class=" w-full h-[150px] place-items-center">
+    
+    <nav class="h-[50px] w-full">
+        <div class="flex flex-row m-auto md:ml-52  place-items-center gap-2
+                    w-full md:max-w-[400px] h-full justify-center">  
+                    <img src="./Sun.png" class="mt-1 w-5" /> 
+                    <p class="font-bold text-2xl text-black">Weather App</p>             
+        </div>              
+    </nav> 
+
+        <div
+        class="w-[80%] h-[30%] rounded-md bg-white
+         xl:w-[45%] lg:w-[45%] md:w-[65%] sm:w-[55%] 
+        flex flex-row items-center gap-2 px-2 m-auto"
+        >
+         <img src="./Search.png" alt="" class="w-7 h-7">
+         <input id="searchBar" type="text" placeholder="Enter Place" class="px-3 w-full" />
+         
+        </div>
+        <div id="DropDown" 
+        class="flex flex-col gap-2 place-items-center
+                 w-[70%] rounded-md bg-[#8c8c8c]
+                 xl:w-[40%] lg:w-[40%] md:w-[55%] sm:w-[45%] 
+                 px-2 m-auto">                      
+
+        </div>
+    </div>
+
+    <!-- <div
+    class="w-[200px] h-[200px] bg-slate-950/[0.4] rounded-md place-items-center m-auto mt-5"
+    >
+      
+        <p id="placeName" class="text-white text-center px-1 text-3xl p-4"                
+                 >
+                </p>           
+       <p id="temperature" class="text-center text-xl text-white px-1 mt-[20px]" 
+                >
+                </p>
+    </div> -->
+
+
+    <div id="TemperatureDiv" class="w-[97.5%] h-[%13]
+    xl:w-[45%] lg:w-[55%] md:w-[65%] sm:w-[75%]
+    rounded-md place-items-center m-auto mt-5 mb-10 py-1">
+        <div>
+            <h2 id="placeName" class="text-3xl font-bold text-center py-5">Islamabad</h2>
+
+            <!-- Day1  -->
+            <button id="ButtonDay1" onclick="ShowHideTimeSlots(1)" class="w-full bg-white border-solid border-2 border-black flex flex-row justify-between px-1">                
+               <div class="flex flex-col my-3">
+                <h1 id="Day1" class="text-lg sm:text-xl font-bold text-left">Sunday</h2>
+                <h1 id="Date1" class="text-sm sm:text-base font-semibold text-left">8/11/2024</h2>
+                </div>
+
+                <div class="flex flex-row my-3 gap-1 place-items-center">
+                    <img id="DayIcon1" src="//cdn.weatherapi.com/weather/64x64/day/176.png" />
+                    <h2 id="DateTemperatureRange1" class="text-lg sm:text-2xl font-bold">34° C</h2>
+                </div>
+
+                <div class="flex flex-row my-3 gap-1 place-items-center">
+                    <img id="currentTemperatureIcon" src="//cdn.weatherapi.com/weather/64x64/day/176.png" />
+                    <h2 id="currentTemperature" class="text-lg sm:text-2xl font-bold">34° C</h2>
+                </div>
+               
+            </button>
+            <div id="TimeSlots1" class="bg-white  grid grid-cols-2 gap-2 place-items-center py-3">
+                <div class="font-semibold text-2xl">Hour</div>
+                <div class="font-semibold text-2xl">Temperature</div>
+                
+                <!-- Hourly slots -->              
+                
+            </div>
+
+            <!-- Day2  -->
+            <button id="ButtonDay2" onclick="ShowHideTimeSlots(2)" class="w-full bg-white border-solid border-2 border-black flex flex-row justify-between px-1">                
+                <div class="flex flex-col my-3">
+                 <h1 id="Day2" class="text-lg sm:text-xl font-bold text-left">Sunday</h2>
+                 <h1 id="Date2" class="text-sm sm:text-base font-semibold text-left">8/11/2024</h2>
+                 </div>
+                 <div class="flex flex-row my-3 gap-1 place-items-center">
+                    <img id="DayIcon2" src="//cdn.weatherapi.com/weather/64x64/day/176.png" />
+                    <h2 id="DateTemperatureRange2" class="text-lg sm:text-2xl font-bold">34° C</h2>
+                </div>
+                
+             </button>            
+             <div id="TimeSlots2" class="bg-white  grid grid-cols-2 gap-2 place-items-center py-3">
+                 <div class="font-semibold text-2xl">Hour</div>
+                 <div class="font-semibold text-2xl">Temperature</div>
+                 
+                 <!-- Hourly slots -->               
+             </div>
+
+              <!-- Day3  -->
+            <button id="ButtonDay3" onclick="ShowHideTimeSlots(3)" class="w-full bg-white border-solid border-2 border-black flex flex-row justify-between px-1">                
+                <div class="flex flex-col my-3">
+                 <h1 id="Day3" class="text-lg sm:text-xl font-bold text-left">Sunday</h2>
+                 <h1 id="Date3" class="text-sm sm:text-base font-semibold text-left">8/11/2024</h2>
+                 </div>
+                 <div class="flex flex-row my-3 gap-1 place-items-center">
+                    <img id="DayIcon3" src="//cdn.weatherapi.com/weather/64x64/day/176.png" />
+                    <h2 id="DateTemperatureRange3" class="text-lg sm:text-2xl font-bold">34° C</h2>
+                </div>
+                
+             </button>            
+             <div id="TimeSlots3" class="bg-white  grid grid-cols-2 gap-2 place-items-center py-3">
+                 <div class="font-semibold text-2xl">Hour</div>
+                 <div class="font-semibold text-2xl">Temperature</div>
+                 
+                 <!-- Hourly slots -->               
+             </div>
+
+                <!-- 4  -->
+            <button id="ButtonDay4" onclick="ShowHideTimeSlots(4)" class="w-full bg-white border-solid border-2 border-black flex flex-row justify-between px-1">                
+                <div class="flex flex-col my-3">
+                 <h1 id="Day4" class="text-lg sm:text-xl font-bold text-left">Sunday</h2>
+                 <h1 id="Date4" class="text-sm sm:text-base font-semibold text-left">8/11/2024</h2>
+                 </div>
+                 <div class="flex flex-row my-3 gap-1 place-items-center">
+                    <img id="DayIcon4" src="//cdn.weatherapi.com/weather/64x64/day/176.png" />
+                    <h2 id="DateTemperatureRange4" class="text-lg sm:text-2xl font-bold">34° C</h2>
+                </div>
+                
+             </button>            
+             <div id="TimeSlots4" class="bg-white  grid grid-cols-2 gap-2 place-items-center py-3">
+                 <div class="font-semibold text-2xl">Hour</div>
+                 <div class="font-semibold text-2xl">Temperature</div>
+                 
+                 <!-- Hourly slots -->               
+             </div>
+
+                <!-- Day5  -->
+            <button id="ButtonDay5" onclick="ShowHideTimeSlots(5)" class="w-full bg-white border-solid border-2 border-black flex flex-row justify-between px-1">                
+                <div class="flex flex-col my-3">
+                 <h1 id="Day5" class="text-lg sm:text-xl font-bold text-left">Sunday</h2>
+                 <h1 id="Date5" class="text-sm sm:text-base font-semibold text-left">8/11/2024</h2>
+                 </div>
+                 <div class="flex flex-row my-3 gap-1 place-items-center">
+                    <img id="DayIcon5" src="//cdn.weatherapi.com/weather/64x64/day/176.png" />
+                    <h2 id="DateTemperatureRange5" class="text-lg sm:text-2xl font-bold">34° C</h2>
+                </div>
+                
+             </button>            
+             <div id="TimeSlots5" class="bg-white  grid grid-cols-2 gap-2 place-items-center py-3">
+                 <div class="font-semibold text-2xl">Hour</div>
+                 <div class="font-semibold text-2xl">Temperature</div>
+                 
+                 <!-- Hourly slots -->               
+             </div>
+
+                <!-- Day6  -->
+            <button id="ButtonDay6" onclick="ShowHideTimeSlots(6)" class="w-full bg-white border-solid border-2 border-black flex flex-row justify-between px-1">                
+                <div class="flex flex-col my-3">
+                 <h1 id="Day6" class="text-lg sm:text-xl font-bold text-left">Sunday</h2>
+                 <h1 id="Date6" class="text-sm sm:text-base font-semibold text-left">8/11/2024</h2>
+                 </div>
+                 <div class="flex flex-row my-3 gap-1 place-items-center">
+                    <img id="DayIcon6" src="//cdn.weatherapi.com/weather/64x64/day/176.png" />
+                    <h2 id="DateTemperatureRange6" class="text-lg sm:text-2xl font-bold">34° C</h2>
+                </div>
+                
+             </button>            
+             <div id="TimeSlots6" class="bg-white  grid grid-cols-2 gap-2 place-items-center py-3">
+                 <div class="font-semibold text-2xl">Hour</div>
+                 <div class="font-semibold text-2xl">Temperature</div>
+                 
+                 <!-- Hourly slots -->               
+             </div>
+
+                <!-- Day7  -->
+            <button id="ButtonDay7" onclick="ShowHideTimeSlots(7)" class="w-full bg-white border-solid border-2 border-black flex flex-row justify-between px-1">                
+                <div class="flex flex-col my-3">
+                 <h1 id="Day7" class="text-lg sm:text-xl font-bold text-left">Sunday</h2>
+                 <h1 id="Date7" class="text-sm sm:text-base font-semibold text-left">8/11/2024</h2>
+                 </div>
+                 <div class="flex flex-row my-3 gap-1 place-items-center">
+                    <img id="DayIcon7" src="//cdn.weatherapi.com/weather/64x64/day/176.png" />
+                    <h2 id="DateTemperatureRange7" class="text-lg sm:text-2xl font-bold">34° C</h2>
+                </div>
+                
+             </button>            
+             <div id="TimeSlots7" class="bg-white grid grid-cols-2 gap-2 place-items-center py-3">
+                 <div class="font-semibold text-2xl">Hour</div>
+                 <div class="font-semibold text-2xl">Temperature</div>
+                 
+                 <!-- Hourly slots -->               
+             </div>
+        </div>
+    <script src="./WeatherApp.js" />
+</body>
+</html>

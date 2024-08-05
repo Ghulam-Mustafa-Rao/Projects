@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+   
+</head>
+<body class="bg-gray-800">
+    
+    <!-- <p id="p" class="Para">Paragraph</p>
+    <p class="Para">Paragraph</p>
+    <p class="Para">Paragraph</p>
+    <p class="Para">Paragraph</p>
+
+    <div id="div">Old Div</div> -->
+  
+    <div class="m-auto bg-gray-400 mt-10 p-6 rounded-lg shadow-lg max-w-[400px]">
+        <h1 class="text-2xl font-bold mb-4 text-center">Calculator</h1>
+    <div class="grid grid-cols-3 gap-2">
+        <input type="text" id="1stValue" placeholder="Value" class="w-full p-3 text-right border rounded mb-4" >
+        <input type="text" id="Sign" placeholder="Sign" class="w-full p-3 text-right border rounded mb-4" >
+        <input type="text" id="result" placeholder="result" class="w-full p-3 text-right border rounded mb-4" >
+    </div>
+        <div class="grid grid-cols-4 gap-2">
+            <button class="number border-solid border-2 bg-white">7</button>
+            <button class="number border-solid border-2 bg-white">8</button>
+            <button class="number border-solid border-2 bg-white">9</button>
+            <button id="Divide" class="border-solid border-2 bg-white">/</button>
+            <button class="number border-solid border-2 bg-white">4</button>
+            <button class="number border-solid border-2 bg-white">5</button>
+            <button class="number border-solid border-2 bg-white">6</button>
+            <button id="Multiply" class="border-solid border-2 bg-white">*</button>
+            <button class="number border-solid border-2 bg-white">1</button>
+            <button class="number border-solid border-2 bg-white">2</button>
+            <button class="number border-solid border-2 bg-white">3</button>
+            <button id="Minus" class="border-solid border-2 bg-white">-</button>
+            <button class="number border-solid border-2 bg-white">0</button>
+            <button id="Dot" class="border-solid border-2 bg-white">.</button>            
+            <button id="Clear" class="border-solid border-2 bg-white">Clear</button>
+            <button id="Sum" class="border-solid border-2 bg-white">+</button>
+            <button id="EquleTo" class="btn col-span-4 bg-blue-500 text-white">=</button>
+        </div>
+    </div>
+
+    <script>
+        //document.getElementById("p").innerHTML = "This is changed content"
+         //let x = document.getElementsByClassName("Para")
+        // console.log(x)
+        // for(let y of x)
+        // {
+        //     y.innerHTML =  "This is changed"
+        // }
+
+        // x = document.getElementsByTagName("p")
+
+        // for(let y of x)
+        // {
+        //     y.innerHTML =  "p is changed"
+        // }
+
+        //For Single
+        // x = document.querySelector(".Para")
+
+        // x.innerHTML =  "p is changed"
+      
+        // x = document.querySelectorAll(".Para")
+
+        // for(let y of x)
+        // {
+        //     y.innerHTML =  "p is changed"
+        // }
+
+        // let z = document.getElementById("1stValue");
+
+        // z.value =10
+        // z.value =parseFloat(z.value) +15
+
+        const Signs = Object.freeze({
+                    PLUS:   "+",
+                    MINUS:  "-",
+                    DIVIDE: "/",
+                    MULTIPLY: "*",
+                    NONE : ""
+                });
+
+        let previousSign = Signs.NONE ;
+
+        const firstValue = document.getElementById("1stValue");
+        const sign = document.getElementById("Sign");
+
+        let clearButton = document.getElementById("Clear")
+        clearButton.onclick =() => {Clear()}
+
+        let multiplyButton = document.getElementById("Multiply")
+        multiplyButton.onclick =() => {Multiply()}
+
+        let minusButton = document.getElementById("Minus")
+        minusButton.onclick=()=>{Minus()}
+
+        let divideButton = document.getElementById("Divide")
+        divideButton.onclick =() => {Divide()}
+
+        let sumButton = document.getElementById("Sum")
+        sumButton.onclick=()=>{Sum()}
+       
+        let equleToButton = document.getElementById("EquleTo")
+        equleToButton.onclick=()=>{EquleTo()}
+        
+        const result = document.getElementById("result");;
+        result.value = "";
+
+        const numbers = document.querySelectorAll(".number")
+        numbers.forEach(element => {
+            console.log(element.innerHTML)
+            element.onclick = () => {InputNumber(element)};
+        });
+        
+        const dot = document.getElementById("Dot")
+        dot.onclick = () => {InputDot(dot)};
+
+        function InputNumber(number)
+        {
+            firstValue.value += number.innerHTML+"";
+        }
+
+        function InputDot(dot)
+        {
+            if(firstValue.value[firstValue.value.length-1] != dot.innerHTML)
+                firstValue.value += dot.innerHTML+"";
+        }
+
+        function Sum()
+        {   
+            PerformCalculation();
+
+            previousSign = Signs.PLUS;
+
+            SetSymbol();
+            console.log("currentSign : " + previousSign);
+        };
+
+        function Minus()
+        {   
+            PerformCalculation();
+
+            previousSign = Signs.MINUS;
+
+            SetSymbol();
+            console.log("currentSign : " + previousSign);
+        };
+       
+        function Divide()
+        {
+            PerformCalculation();
+
+            previousSign = Signs.DIVIDE;
+
+            SetSymbol();
+            console.log("currentSign : " + previousSign);
+        };
+       
+        function Multiply()
+        {
+            PerformCalculation();
+
+            previousSign = Signs.MULTIPLY;
+
+            SetSymbol();
+            console.log("currentSign : " + previousSign);
+        };       
+        
+        function Clear()
+        {
+            result.value = "";
+            firstValue.value ="";
+            previousSign = Signs.NONE;
+            SetSymbol();
+        };
+
+        function PerformCalculation()
+        {
+            let value = firstValue.value;
+            
+            if(value=="")
+            {
+                value = 0;
+            }
+            
+            if(result.value =="")
+            {
+                result.value = 0;
+            }
+            
+            if (previousSign == Signs.NONE)
+            {
+                result.value = parseFloat(result.value) + parseFloat(value);
+            }
+            else if (previousSign == Signs.PLUS && parseFloat(value) != 0)
+            {
+                result.value = parseFloat(result.value) + parseFloat(value);
+            }
+            else if (previousSign == Signs.MINUS && parseFloat(value) != 0)
+            {
+                result.value = parseFloat(result.value) - parseFloat(value);
+            }
+            else if (previousSign == Signs.MULTIPLY && parseFloat(value) != 0)
+            {
+                result.value = parseFloat(result.value) * parseFloat(value);
+            }
+            else if (previousSign == Signs.DIVIDE && parseFloat(value) != 0)
+            {
+                result.value = parseFloat(result.value) / parseFloat(value);
+            }
+                
+            firstValue.value = "";            
+            
+            previousSign = Signs.NONE;
+            SetSymbol();
+        }
+
+        function EquleTo()
+        {
+            let value = firstValue.value;
+
+            if(value=="")
+            {
+                value = 0;
+            }
+
+            if(result.value =="")
+            {
+                result.value = 0;
+            }
+
+            if (previousSign == Signs.NONE)
+            {
+                result.value = parseFloat(value);
+            }
+            else if (previousSign == Signs.PLUS && parseFloat(value) != 0)
+            {
+                result.value = parseFloat(result.value) + parseFloat(value);
+            }
+            else if (previousSign == Signs.MINUS && parseFloat(value) != 0)
+            {
+                result.value = parseFloat(result.value) - parseFloat(value);
+            }
+            else if (previousSign == Signs.MULTIPLY && parseFloat(value) != 0)
+            {
+                result.value = parseFloat(result.value) * parseFloat(value);
+            }
+            else if (previousSign == Signs.DIVIDE && parseFloat(value) != 0)
+            {
+                result.value = parseFloat(result.value) / parseFloat(value);
+            }
+                
+            firstValue.value = "";
+
+            previousSign = Signs.NONE;
+            SetSymbol();
+
+        }
+
+        function SetSymbol()
+        {
+            if (previousSign == Signs.NONE)
+            {
+                sign.value = ""
+            }
+            else
+            {
+                sign.value = previousSign + "";
+            }
+        }
+
+        // document.body.onload = addElement
+        // function addElement ()
+        // {
+        //     let newdiv = document.createElement("div")
+        //     let newContent = document.createTextNode("This is a text node")
+        //     newdiv.append(newContent)
+        //     let currentDiv = document.getElementById("div")
+        //     document.body.insertBefore(newdiv,currentDiv)
+        // }
+
+        
+    </script>
+</body>
+</html>
