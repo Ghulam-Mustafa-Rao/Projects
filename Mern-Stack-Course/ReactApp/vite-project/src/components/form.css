@@ -1,0 +1,55 @@
+.heading{
+    background-color: aqua;
+}
+.heading2{
+    color: black;
+}
+#form{ 
+    width: max-content;
+    padding: 30px; 
+    border-radius: 40px;
+}
+
+table{
+    width: max-content;
+}
+
+table,th, td {
+    border: 1px dotted azure;
+    border-collapse: collapse;
+  }
+  
+ label{
+    color: azure;
+ } 
+
+ .para{
+    font-style: italic;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    color: azure;
+    font-weight: 900;
+    text-align: center;
+ }
+
+ a{
+    text-decoration: none;
+    color: black;
+ }
+
+ .nav
+ {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100px;
+    background-color: aqua;
+    font-weight: bold;
+    font-size: 50px;
+ }
+
+
+/* tr:nth-child(even)
+{
+    background-color:chartreuse;
+} */
