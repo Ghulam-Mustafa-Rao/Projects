@@ -175,6 +175,7 @@ bg-cover bg-no-repeat" >
                     <img src={Sun} className="mt-1 w-5" /> 
                     <p className="font-bold text-2xl text-black dark:text-white">Weather App</p>             
         </div> 
+
        
     </nav> 
 
