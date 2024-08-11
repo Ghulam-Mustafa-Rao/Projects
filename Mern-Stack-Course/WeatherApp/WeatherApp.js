@@ -7,6 +7,7 @@
 
 let places = [
     {
+<<<<<<< HEAD
         key: "Islamabad",
         TimeSlots: [
             { Hour: "00:00", Temp: "35° C" },
@@ -121,6 +122,18 @@ let places = [
             { Hour: "22:00", Temp: "42° C" },
             { Hour: "23:00", Temp: "41° C" }
         ]
+=======
+        key: "Islamabad"
+    },
+    {
+        key: "Rawalpindi"
+    },
+    {
+        key: "Karachi"
+    },
+    {
+        key: "Lahore"
+>>>>>>> 1aac80a (Weather On React Added)
     }
 ];
 
@@ -339,9 +352,13 @@ searchBar.oninput =() =>
                    
                     console.log('----------------------');
                 }
+<<<<<<< HEAD
                 // forecastData.forEach(day => {
                    
                 // });
+=======
+              
+>>>>>>> 1aac80a (Weather On React Added)
             })
             .then(()=>
             {

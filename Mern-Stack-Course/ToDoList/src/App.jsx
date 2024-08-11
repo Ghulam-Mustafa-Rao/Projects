@@ -88,4 +88,8 @@ function App() {
   )
 }
 
+<<<<<<< HEAD
 export default App
+=======
+export default React.memo(App)
+>>>>>>> 1aac80a (Weather On React Added)

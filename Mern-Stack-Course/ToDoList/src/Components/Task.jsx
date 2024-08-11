@@ -17,14 +17,27 @@ function Task({id,handleDelete,value,OnTaskValueChanged}) {
     function handleChange(e)
     {
         setinputValue(e.target.value);
+<<<<<<< HEAD
 
     }
   
+=======
+        console.log(e.target.value)
+    }
+  
+    
+    
+>>>>>>> 1aac80a (Weather On React Added)
   return (
     <div>
        <div className='my-5 flex flex-row flex-erap'>
         
+<<<<<<< HEAD
         {isEditing ? <>      
+=======
+        {isEditing ? 
+        <>      
+>>>>>>> 1aac80a (Weather On React Added)
         <input type='text' value={inputValue} onChange={handleChange}  
         className='bg-gray-50 border border-black text-gray-900 text-sm rounded-lg w-full p-2.5'
         />
@@ -45,4 +58,8 @@ function Task({id,handleDelete,value,OnTaskValueChanged}) {
   )
 }
 
+<<<<<<< HEAD
 export default Task
+=======
+export default  React.memo(Task)
+>>>>>>> 1aac80a (Weather On React Added)
