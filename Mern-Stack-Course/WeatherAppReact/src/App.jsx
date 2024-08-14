@@ -3,7 +3,8 @@ import Search from './Images/Search.png'
 import Sun from './Images/Sun.png'
 import DailyCard from './Components/DailyCard'
 import Choice from './Components/Choice';
-import { themeContext } from './Context/ThemeContext';
+
+
 function App() {
 
 
@@ -22,9 +23,13 @@ function App() {
     }
 ];
 
+const [inputvalue, setinputvalue] = useState("")
+
+
 const oninput = (e) => 
 {
     let text = e.target.value + "";
+    setinputvalue(text);
     text = text.toUpperCase();
     text = text.trim();    
     let matchedValues = [];
@@ -109,7 +114,8 @@ const [currentTemperature, setcurrentTemperature] = useState("")
 async function PlaceSelected(selectedPlace)
 {        
    //placeName.innerHTML = selectedPlace.key; 
-
+   setinputvalue("");
+   setChoices([]);
    const apiKey = '69d91b41f62e4140b46135934240508'; // Replace with your WeatherAPI key
    const location = selectedPlace.key; // Replace with the city you want the weather for
 
@@ -152,19 +158,9 @@ function getDayFromDate(dateString) {
    return dayOfWeek;
 }
 
- const [theme, setTheme] = useState('light');
- function handelTheme() 
- {
-  
-  if(theme=='light')
-    setTheme('dark')
-  else
-    setTheme('light')  
-  
-}
-  
+ 
   return (
-    <themeContext.Provider value={theme}>
+    <>
     <div className="bg-[url('https://149842022.v2.pressablecdn.com/travelify/wp-content/uploads/sites/53/2013/05/Spain-Plaza-de-Cibeles-Madrid-1.jpg')]
 bg-cover bg-no-repeat" >
        <div className=" w-full h-[150px] place-items-center">
@@ -185,7 +181,7 @@ bg-cover bg-no-repeat" >
         flex flex-row items-center gap-2 px-2 m-auto"
         >
          <img src={Search} alt="" className="w-7 h-7" />
-         <input id="searchBar" type="text" placeholder="Enter Place" className="px-3 w-full" onInput={oninput} />
+         <input id="searchBar" type="text" placeholder="Enter Place" className="px-3 w-full" value={inputvalue} onChange={oninput} />
          
         </div>
         <div id="DropDown" 
@@ -241,7 +237,7 @@ bg-cover bg-no-repeat" >
         </div>
     </div>
     </div>
-    </themeContext.Provider>
+    </>
   )
 }
 

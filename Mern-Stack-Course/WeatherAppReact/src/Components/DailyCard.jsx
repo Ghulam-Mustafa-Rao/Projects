@@ -47,7 +47,7 @@ function DailyCard({id,Day,Date,currentTemperatureIcon,currentTemperature,DayIco
                 {
                     hourlyData.map((value,index)=> 
                     {
-                        return <HourlyData key={index} hour={`${value.temp_c}°C`} temp={`${DisplayTime(value.time)}`} imgUrl={`${value.condition.icon}`} />
+                        return <HourlyData key={index} hour={`${DisplayTime(value.time)}`}  temp={`${value.temp_c}°C`} imgUrl={`${value.condition.icon}`} />
                     })
                 }
                 
